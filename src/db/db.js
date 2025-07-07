@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.MONGO, {
+export const connect = mongoose.connect(process.env.MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     },
@@ -11,5 +11,3 @@ mongoose.connect(process.env.MONGO, {
         console.log('Connected to the database successfully');
     }
 )
-
-export default mongoose.connection;
