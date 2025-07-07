@@ -4,6 +4,7 @@ import express from 'express';
 
 // Importação de módulos
 import usersRoutes from './routes/users.js';
+import db from './src/db/db.js'
 
 // Inicialização do ambiente de desenvolvimento
 const app = express();
