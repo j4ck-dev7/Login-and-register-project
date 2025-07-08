@@ -1,5 +1,15 @@
 // Importação de dependências
-import express from 'express';
+
 
 // Importação de módulos
-import User from '../models/user.js';
+
+
+export const getUsers = async (req, res) => {
+    console.log('Fetching users...');
+    res.send('Fetching users...');
+}
+
+export const createUser = async (req, res) => {
+    console.log('criate user...');
+    res.send('criate user...');
+}
