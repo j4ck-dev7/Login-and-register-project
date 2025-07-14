@@ -1,3 +1,4 @@
+// Importação de depêndencias 
 import mongoose from 'mongoose';
 
 export const connect = async () => {
