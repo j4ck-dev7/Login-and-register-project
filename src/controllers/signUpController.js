@@ -5,6 +5,7 @@ import bcrypt from 'bcryptjs'
 // Importação de módulos
 import User from '../models/user.js'
 
+// Register
 export const signUp = async (req, res) => {
     const selectedUser = await User.findOne({ email: req.body.email })
     if(selectedUser) return res.status(400).send('Email existente')
@@ -17,7 +18,9 @@ export const signUp = async (req, res) => {
 
     try {
         const savedUser = await user.save()
-        res.send(savedUser)
+        let token = jwt.sign( { _id : selectedUser._id }, process.env.SECRET )
+        res.cookie('AuthCookie', token, { secure: true, httpOnly: true, expires: new Date(Date.now() + 2 * 3600000) })
+        res.send(json(savedUser))
     } catch (error) {
         res.status(400).send(error)
     }
