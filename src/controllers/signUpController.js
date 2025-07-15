@@ -20,7 +20,6 @@ export const signUp = async (req, res) => {
         const savedUser = await user.save()
         let token = jwt.sign( { _id : selectedUser._id }, process.env.SECRET )
         res.cookie('AuthCookie', token, { secure: true, httpOnly: true, expires: new Date(Date.now() + 2 * 3600000) })
-        res.send(json(savedUser))
     } catch (error) {
         res.status(400).send(error)
     }

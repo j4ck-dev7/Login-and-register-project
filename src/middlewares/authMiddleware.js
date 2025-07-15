@@ -7,7 +7,6 @@ import User from '../models/user.js'
 // Auth
 export const Auth = (req, res, next) => {
     const cookie = req.cookies.AuthCookie;
-    console.log(cookie)
     if(!cookie) return res.status(401).send('Access Denied')
     
     try {
