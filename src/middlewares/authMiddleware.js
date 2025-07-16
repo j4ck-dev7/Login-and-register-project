@@ -1,9 +1,6 @@
 // Importação de depêndencias
 import jwt from 'jsonwebtoken'
 
-// Importação de módulos
-import User from '../models/user.js'
-
 // Auth
 export const Auth = (req, res, next) => {
     const cookie = req.cookies.AuthCookie;
